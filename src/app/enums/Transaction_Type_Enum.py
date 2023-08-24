@@ -1,6 +1,6 @@
 from enum import Enum
 
 
-class TRANSATONTYPEENUM(Enum):
+class TRANSACTIONTYPEENUM(Enum):
     DEPOSIT = "DEPOSIT"
     WITHDRAW = "WITHDRAW"
