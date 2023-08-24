@@ -1,14 +1,14 @@
 from typing import Tuple
-from ..enums.Transaction_Type_Enum import TransactionTypeEnum
+from ..enums.Transaction_Type_Enum import TRANSATONTYPEENUM
 from ..errors.entity_errors import ParamNotValidated
 
 class Transaction:
-    type: TransactionTypeEnum
+    type: TRANSATONTYPEENUM
     value: float
     current_balance: float
     timestamp: float
     
-    def __init__(self, type_transactions: TransactionTypeEnum = None, value= None,current_balance = None,timestamp = None):
+    def __init__(self, type_transactions: TRANSATONTYPEENUM = None, value= None,current_balance = None,timestamp = None):
         validate_type = self.validate_type(type_transactions)
         if validate_type[0] is False:
             raise ParamNotValidated('type', validate_type[1])
@@ -31,10 +31,10 @@ class Transaction:
         
         
     @staticmethod
-    def validate_type(type_transactions: TransactionTypeEnum) -> Tuple[bool, str]:
+    def validate_type(type_transactions: TRANSATONTYPEENUM) -> Tuple[bool, str]:
         if type_transactions is None:
             return (False, "Transaction type is required")
-        if type(type_transactions) != TransactionTypeEnum:
+        if type(type_transactions) != TRANSATONTYPEENUM:
             return (False, "Transaction Type must be a TransactionsTypeEnum")
         return (True, "")
 
