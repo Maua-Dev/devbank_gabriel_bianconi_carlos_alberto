@@ -47,7 +47,7 @@ class Test_User:
 
     def test_user_account_is_not_7_digits(self):
         with pytest.raises(ParamNotValidated):
-            user = User(name="Carlos", agency="9999", account="11111-1", current_balance=500000.0)
+            user = User(name="Carlos", agency="9999", account="1111-1", current_balance=500000.0)
 
     def test_user_account_is_not_in_format(self):
         with pytest.raises(ParamNotValidated):
