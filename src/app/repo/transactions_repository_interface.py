@@ -3,7 +3,7 @@ from typing import List
 from src.app.entities.transactions import Transaction
 
 
-class IITransactionsRepository(ABC):
+class ITransactionsRepository(ABC):
     
     @abstractmethod
     def get_all_transactions(self) -> List[Transaction]:
