@@ -11,7 +11,7 @@ transaction_repo = Environments.get_transaction_repo()
 
 @app.get("/")
 
-def get_user() -> dict:
+def get_user():
      user = user_repo.get_user()
      return user.to_dict()
  
