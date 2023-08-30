@@ -1,7 +1,7 @@
 from typing import List
-from src.app.entities.transactions import Transaction
-from src.app.repo.transactions_repository_interface import ITransactionsRepository
-from src.app.enums.Transaction_Type_Enum import TRANSACTIONTYPEENUM
+from ..entities.transactions import Transaction
+from .transactions_repository_interface import ITransactionsRepository
+from ..enums.Transaction_Type_Enum import TRANSACTIONTYPEENUM
 import time
 
 class TransactionRepositoryMock(ITransactionsRepository):
