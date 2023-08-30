@@ -9,18 +9,24 @@ class Test_TransactionRepositoryMock:
     
     def test_get_all_transactions(self):
         repo = TransactionRepositoryMock()
-        assert all([transaction_expect == transaction for transaction_expect, transaction in zip(repo.transactions.values(), repo.get_all_transactions())])
+        history = repo.get_all_transactions()
+        expected_response = repo.transactions_list
+        assert expected_response == history
     
     
     def test_create_transaction_deposit(self):
         repo = TransactionRepositoryMock()
         transaction = Transaction(TRANSACTIONTYPEENUM.DEPOSIT, 100.00, 200.00, time.time())
         repo.create_transaction(transaction)
-        assert transaction == repo.transactions[len(repo.transactions)]
+        assert transaction == repo.transactions_list[len(repo.transactions_list) - 1]
+        
         
     def test_create_transaction_withdrawn(self):
         repo = TransactionRepositoryMock()
         transaction = Transaction(TRANSACTIONTYPEENUM.WITHDRAW, 100.00, 150.00, time.time())
         repo.create_transaction(transaction)
-        assert transaction == repo.transactions[len(repo.transactions)]
+        if len(repo.transactions_list) > 0:
+            assert transaction == repo.transactions_list[len(repo.transactions_list) - 1]
+        else:
+            assert transaction == repo.transactions_list[0]
         

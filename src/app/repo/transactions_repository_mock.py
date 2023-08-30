@@ -5,19 +5,19 @@ from src.app.enums.Transaction_Type_Enum import TRANSACTIONTYPEENUM
 import time
 
 class TransactionRepositoryMock(ITransactionsRepository):
-    transactions : List[Transaction]
+    transactions_list : List[Transaction]
     
     def __init__(self):
-        self.transactions = {
-            1: Transaction(TRANSACTIONTYPEENUM.WITHDRAW, 100.00, 150.00, time.time()),
-            2: Transaction(TRANSACTIONTYPEENUM.DEPOSIT, 100.00, 200.00, time.time()),
-        }
+        self.transactions_list = [
+             Transaction(TRANSACTIONTYPEENUM.WITHDRAW, 100.00, 150.00, time.time()),
+             Transaction(TRANSACTIONTYPEENUM.DEPOSIT, 100.00, 200.00, time.time()),
+        ]
         
     def get_all_transactions(self) -> List[Transaction]:
-        return self.transactions.values()
+        return self.transactions_list
     
     def create_transaction(self, transaction: Transaction) -> Transaction:
-        self.transactions[len(self.transactions) + 1] = transaction
+        self.transactions_list.append(transaction)
         return transaction
         
         
