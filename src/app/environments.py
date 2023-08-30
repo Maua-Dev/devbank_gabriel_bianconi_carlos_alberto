@@ -36,8 +36,8 @@ class Environments:
     @staticmethod
     def get_user_repo() -> IUserRepository:
         if Environments.get_envs().stage == STAGE.TEST:
-            from .repo.user_repository_mock import IUserRepository
-            return IUserRepository
+            from .repo.user_repository_mock import UserRepositoryMock
+            return UserRepositoryMock()
         # use "elif" conditional to add other stages
         else:
             raise EnvironmentNotFound("STAGE")
@@ -45,8 +45,8 @@ class Environments:
     @staticmethod
     def get_transaction_repo() -> ITransactionsRepository:
         if Environments.get_envs().stage == STAGE.TEST:
-            from .repo.transactions_repository_mock import ITransactionsRepository
-            return ITransactionsRepository
+            from .repo.transactions_repository_mock import TransactionRepositoryMock
+            return TransactionRepositoryMock()
         # use "elif" conditional to add other stages
         else:
             raise EnvironmentNotFound("STAGE")

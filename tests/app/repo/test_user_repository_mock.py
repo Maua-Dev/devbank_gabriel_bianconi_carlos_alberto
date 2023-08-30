@@ -1,6 +1,7 @@
 import pytest
-from src.app.repo.user_repository_mock import UserRepositoryMock  # Substitua "your_module" pelo caminho real do seu módulo
-
+from src.app.repo.user_repository_mock import UserRepositoryMock  
+from src.app.enums.Transaction_Type_Enum import TRANSACTIONTYPEENUM
+from src.app.repo.transactions_repository_mock import TransactionRepositoryMock
 class Test_UserRepositoryMock:
     def test_get_user(self):
         repo = UserRepositoryMock()
@@ -23,3 +24,4 @@ class Test_UserRepositoryMock:
         withdrawal_amount = 500.0
         new_balance = repo.withdraw_current_balance(withdrawal_amount)
         assert new_balance == initial_balance - withdrawal_amount
+        

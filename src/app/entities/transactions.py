@@ -9,7 +9,7 @@ class Transaction:
     current_balance: float
     timestamp: float
     
-    def __init__(self, type_transactions: TRANSACTIONTYPEENUM = None, value= None,current_balance = None,timestamp = None):
+    def __init__(self, type_transactions: TRANSACTIONTYPEENUM, value: float,current_balance = float,timestamp = float):
         validate_type = self.validate_type(type_transactions)
         if validate_type[0] is False:
             raise ParamNotValidated('type', validate_type[1])

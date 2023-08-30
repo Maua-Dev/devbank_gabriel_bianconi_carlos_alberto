@@ -7,7 +7,7 @@ from ..entities.user import User
 class IUserRepository(ABC):
 
     @abstractmethod
-    def get_user(self) -> List[User]:
+    def get_user(self) -> User:
         """
         Returns user in the database
         """

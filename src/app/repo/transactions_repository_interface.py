@@ -11,6 +11,7 @@ class ITransactionsRepository(ABC):
         Returns all the transactions in the database 
         '''
         pass
+    @abstractmethod
     def create_transaction(self, transaction: Transaction) -> Transaction:
         '''
         Creates a new transaction in the database
